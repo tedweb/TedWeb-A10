@@ -1,0 +1,26 @@
+<div class="tw-ftr-wrapper">
+  <!-- Footer Status Section -->
+  <div class="tw-ftr-status">
+    {{this.status}}
+  </div>
+
+  <!-- Footer Lang Section -->
+  <div class="tw-ftr-copyright">
+    <div [ngClass.xs]="{'tw-hidden':true}">&copy; {{year}} {{this.config.company}}. All Rights Reserved.</div>
+    <div [ngClass.xs]="{'tw-hidden':true}" *ngIf="version" style="border-right: 1px solid white;margin-right: 10px;padding-right: 10px;">&nbsp;</div>
+    <div [ngClass.xs]="{'tw-hidden':true}" *ngIf="version">v{{this.version}}</div>
+    <div [ngClass.xs]="{'tw-hidden':true}" *ngIf="flag" style="border-right: 1px solid white;margin-right: 10px;padding-right: 10px;">&nbsp;</div>
+    <div *ngIf="flag" style="cursor:pointer;" [matMenuTriggerFor]="lang_menu">
+      <span [class]="flag"></span>
+    </div>
+  </div>
+
+  <!-- Lang Menu -->
+  <mat-menu #lang_menu="matMenu" [overlapTrigger]="false">
+    <button mat-menu-item *ngFor="let lang of this.config.langs" (click)="onLangSelect(lang)">
+      <span class="flag-icon flag-icon-{{lang.abbr}}" style="margin-right: 10px;"></span>
+      {{lang.name}}
+    </button>
+  </mat-menu>
+
+</div>

@@ -1,0 +1,27 @@
+version: 0.2
+environment_variables:
+    plaintext:
+        S3_BUCKET: "tedweb-a8-dev"
+phases:
+    install:
+         runtime-versions:
+             nodejs: 10
+    #     commands:
+    #         - echo Installing source NPM dependencies...
+    #         - npm install
+    #         - npm install -g @angular/cli
+    # build:
+    #     commands:
+    #         - echo Build started on `date`
+    #         - ng build --prod
+    post_build:
+        commands:
+            #- aws s3 rm s3://${S3_BUCKET} --recursive
+            - aws s3 cp src/index.html s3://${S3_BUCKET}
+            #- aws s3 cp dist/tedweb/ s3://${S3_BUCKET} --recursive
+            - echo Build completed #on `date`
+artifacts:
+    files:
+        - '**/*'
+    base-directory: 'dist*'
+    discard-paths: yes

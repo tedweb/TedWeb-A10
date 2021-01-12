@@ -1,0 +1,68 @@
+<div style="overflow-y: scroll; height: 100%;">
+  <mat-tab-group>
+
+    <!-- Email -->
+    <mat-tab label="Email">
+      <div class="tab-content" fxLayout="column">
+        <div class="tab-header">Compose new email message</div>
+        <mat-form-field appearance="outline" style="margin-bottom: 10px;" class="content-partial">
+          <mat-label>Send From Email Address</mat-label>
+          <input matInput (keyup)="onKeyEmailFrom($event)" [formControl]="emailFromFormControl" [errorStateMatcher]="matcher">
+          <mat-error *ngIf="emailFromFormControl.hasError('email') && !emailFromFormControl.hasError('required')">
+            Please enter a valid email address
+          </mat-error>
+          <mat-error *ngIf="emailFromFormControl.hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" style="margin-bottom: 10px;" class="content-partial">
+          <mat-label>Send To Email Address</mat-label>
+          <input matInput (keyup)="onKeyEmailTo($event)" [formControl]="emailToFormControl" [errorStateMatcher]="matcher">
+          <mat-error *ngIf="emailToFormControl.hasError('email') && !emailToFormControl.hasError('required')">
+            Please enter a valid email address
+          </mat-error>
+          <mat-error *ngIf="emailToFormControl.hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" style="margin-bottom: 10px;" class="content-partial">
+          <mat-label>Subject</mat-label>
+          <input matInput (keyup)="onKeyEmailSubject($event)" [formControl]="textSubjectFormControl" [errorStateMatcher]="matcher">
+          <mat-error *ngIf="textSubjectFormControl.hasError('required')">
+            Subject is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="content-partial">
+          <mat-label>Email Message</mat-label>
+          <textarea placeholder="Type an email message" matInput matTextareaAutosize matAutosizeMinRows="10" (keyup)="onKeyEmailMessage($event)" [formControl]="textMessageFormControl" [errorStateMatcher]="matcher"></textarea>
+          <mat-error *ngIf="textMessageFormControl.hasError('required')">
+            Subject is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </mat-tab>
+
+    <!-- Text -->
+    <mat-tab label="Text">Text Content Here</mat-tab>
+
+
+    <mat-tab label="Voice">Voice Content Here</mat-tab>
+  </mat-tab-group>
+
+  <!-- Buttons -->
+  <div class="button-panel" fxLayout="column">
+    <button mat-fab color="primary" class="button-item" (click)="onSend()">
+      <mat-icon aria-label="Send" role="img" aria-hidden="true">send</mat-icon>
+    </button>
+    <!--
+    <button mat-fab color="primary" class="button-item" (click)="onSave()">
+      <mat-icon aria-label="Save" role="img" aria-hidden="true">save</mat-icon>
+    </button>
+    -->
+  </div>
+
+</div>
+

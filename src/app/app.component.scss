@@ -1,0 +1,313 @@
+@import '../sass/styles';
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+main {
+  @extend %tw-col;
+  justify-content: stretch;
+  height: 100%;
+  background: #000000;
+}
+
+
+.tw-body {
+  @extend %tw-row;
+  align-items: flex-start;
+  justify-content: stretch;
+  flex: 0 1 auto;
+  overflow: hidden;
+  height: 100%;
+  flex-wrap: wrap;
+}
+
+.tw-body-col-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: stretch;
+  flex-grow: 1;
+}
+
+.tw-body-row-layout {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: stretch;
+  flex-grow: 1;
+}
+
+.tw-app-launcher {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid rgba(20, 20, 20, 0.3);
+  box-sizing: border-box;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+.tw-app-launcher:hover {
+  background-color: rgba(150, 150, 240, 0.10);  
+}
+
+.tw-app-caption {
+  font-size: 2em;
+  font-weight: 400;
+  margin-left: 17px;
+  width: 100%
+}
+
+.tw-nav-minimizer {
+  border-top: 1px solid rgba(30, 30, 30, 0.2);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1.4em;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding-left: 22px;
+  width: 100%;
+  height: var(--navButtonHeight);
+}
+
+.tw-nav-chevron::before {
+	border-style: solid;
+	border-width: 0.25em 0.25em 0 0;
+	content: '';
+	display: inline-block;
+	height: 0.45em;
+	position: relative;
+	width: 0.45em;
+  margin: 5px   -2px 0 0;
+  overflow: hidden;
+}
+
+.tw-nav-chevron.left:before {
+  transform: rotate(-135deg);
+}
+
+.tw-nav-chevron.right:before {
+	transform: rotate(45deg);
+}
+
+// .tw-nav-horizontal {
+//   @extend %tw-row;
+//   align-items: center;
+//   justify-content: flex-start;
+//   flex: 0 1 auto;
+//   width: 100%;
+//   height: 44px;
+//   padding: 0 3px;
+//   box-sizing: border-box;
+//   color: $tw-nav-font-color;
+//   background-color: $tw-nav-back-color;
+//   font-weight: 300;
+// }
+
+// .tw-nav-vertical {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: flex-start;
+//   justify-content: flex-start;
+//   width: auto;
+//   height: 100%;
+//   color: $tw-nav-font-color;
+//   background-color: $tw-nav-back-color;
+// }
+
+%tw-nav {
+  height: 100%;
+  color: inherit;
+  background-color: inherit;
+}
+
+.tw-nav-vertical-xs {
+  @extend %tw-nav;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.tw-nav-container-mini-icon {
+  margin: auto -9px auto -8px;
+}
+
+.tw-content {
+  flex-grow: 1;
+  background: #dfeaf7;
+  box-shadow: inset 0 4px 7px rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+/* Style The Dropdown Button */
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+
+.tw-nav-expanded-gt-xs {
+  @extend %tw-nav;
+  //min-width: 224px;
+}
+
+.tw-nav-expanded-xs {
+  @extend %tw-nav;
+  width: 100%;
+  //min-width: 224px;
+}
+
+.tw-nav-collapsed-gt-xs {
+  @extend %tw-nav;
+}
+
+.tw-titlebar {
+  z-index: 300;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  color: white;
+  background-color: $tw-nav-back-color;
+  box-shadow: -6px -1px 7px 3px rgba(0, 0, 0, 0.3);
+  width: auto;
+  height: auto;
+}
+
+.tw-titlebar-portal {
+  width: 100%;
+}
+
+.tw-nav-pane {
+  z-index: 200;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: flex-start;
+  width: auto;
+  height: auto;
+  box-sizing: border-box;
+  color: white;
+  background-color: $tw-nav-back-color;
+  box-shadow: 0px -1px 7px 3px rgba(0, 0, 0, 0.3);
+}
+
+.tw-nav-pane-portal {
+  flex-direction: column;
+  flex-grow: 0;
+  align-self: stretch;
+}
+
+.tw-content-pane {
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  flex-grow: 1;
+  width: 100%;
+  box-sizing: border-box;
+  color: white;
+  background: #dfeaf7;
+}
+
+
+.tw-content-pane-portal {
+  width: auto;
+}
+
+.tw-footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+
+// .tw-content-wrapper {
+//   @extend %tw-row;
+//   font-size: 1.7rem;
+//   overflow-x: hidden;
+//   width: 100%;
+//   background-color: #dfeaf7;
+// }
+
+
+
+// .menu_button {
+//   cursor: pointer;
+//   user-select: none;
+//   margin-right: 15px;
+// }
+
+// .menu-item {
+//   font-size: 14px;
+//   line-height: 40px;
+//   padding: 0 15px 0 15px;
+//   cursor: pointer;
+// }
+
+// .menu-item:hover {
+//   background-color: #e8e8e8;
+// }
+
+// tw-home {
+//   display: block;
+//   width: 100%;
+// }

@@ -1,0 +1,126 @@
+<div class="page-container">
+  <form>
+    <div class="radio-button-group">
+      <div style="margin-right: 15px;">Process requests using: </div>
+      <mat-radio-group [(ngModel)]="language" name="language">
+        <mat-radio-button [disabled]="loading" class="radio-button" *ngFor="let lang of this.languages" [value]="lang">
+          {{lang}}
+        </mat-radio-button>
+      </mat-radio-group>
+      <div style="flex-grow: 1;"></div>
+      <button *ngIf="!showForm" mat-mini-fab color="primary" matTooltip="Refresh" class="button-item" [disabled]="loading" (click)="onRefresh()">
+        <mat-icon aria-label="Refresh" role="img">refresh</mat-icon>
+      </button>
+      <button *ngIf="!showForm" mat-mini-fab color="primary" matTooltip="Add New" class="button-item" [disabled]="loading" (click)="onGetNew()">
+        <mat-icon aria-label="Add Blog" role="img">create</mat-icon>
+      </button>
+      <button *ngIf="!showForm" mat-mini-fab color="warn" matTooltip="Delete" class="button-item" [disabled]="loading || !isAnySelected()" (click)="onDelete()">
+        <mat-icon aria-label="Delete" role="img">delete</mat-icon>
+      </button>
+      <button *ngIf="showForm" mat-mini-fab color="primary" matTooltip="Save" class="button-item" [disabled]="loading" (click)="onSaveNew()">
+        <mat-icon aria-label="Save Blog" role="img">save</mat-icon>
+      </button>
+      <button *ngIf="showForm" mat-mini-fab color="warn" matTooltip="Cancel" class="button-item" [disabled]="loading" (click)="onCancelSave()">
+        <mat-icon aria-label="Cancel" role="img">close</mat-icon>
+      </button>
+    </div>
+
+    <div class="blog-form {{showForm ? 'blog-form-expanded' : ''}}">
+      <div *ngIf="errorMessage !== ''" style="font-size: 14px; font-weight: bold; color: red; background-color: gold; padding: 5px;">{{errorMessage}}</div>
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Your name here" #name [attr.disabled]="true" (keydown)="onKeyDown($event)" [formControl]="nameFormControl">
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Name is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Email Address</mat-label>
+        <input matInput placeholder="Your email address here" #email (keydown)="onKeyDown($event)" [formControl]="emailFormControl">
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Blog Message</mat-label>
+        <textarea matInput rows="5" placeholder="Your blog message here" #message (keydown)="onKeyDown($event)" [formControl]="messageFormControl"></textarea>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Message is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </form>
+
+  <table mat-table [dataSource]="blogData" matSort class="blogList">
+    <!-- Note that these columns can be defined in any order.
+  The actual rendered columns are set as a property on the row definition" -->
+    <!-- Checkbox Column -->
+    <ng-container matColumnDef="select">
+      <th mat-header-cell *matHeaderCellDef>
+        <mat-checkbox (change)="$event ? masterToggle() : null"
+                      [checked]="selection.hasValue() && isAllSelected()"
+                      [indeterminate]="selection.hasValue() && !isAllSelected()">
+        </mat-checkbox>
+      </th>
+      <td mat-cell style="width: 50px;" *matCellDef="let row">
+        <mat-checkbox (click)="$event.stopPropagation()"
+                      (change)="$event ? selection.toggle(row) : null"
+                      [checked]="selection.isSelected(row)">
+        </mat-checkbox>
+      </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="Name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+      <td mat-cell *matCellDef="let element">{{element.Name}}</td>
+    </ng-container>
+
+    <!-- Email Column -->
+    <ng-container matColumnDef="Email">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+      <td mat-cell *matCellDef="let element"> {{element.Email}} </td>
+    </ng-container>
+
+    <!-- Content Column -->
+    <ng-container matColumnDef="Content">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Content </th>
+      <td mat-cell *matCellDef="let element"> {{element.Content}} </td>
+    </ng-container>
+
+    <!-- Language Column -->
+    <ng-container matColumnDef="Language">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Language </th>
+      <td mat-cell *matCellDef="let element"> {{element.Language}} </td>
+    </ng-container>
+
+    <!-- Duration Column -->
+    <ng-container matColumnDef="Duration">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Duration </th>
+      <td mat-cell *matCellDef="let element"> {{element.Duration}} </td>
+    </ng-container>
+
+    <!-- Timestamp Column -->
+    <ng-container matColumnDef="CreatedTimestamp">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Created Timestamp </th>
+      <td mat-cell *matCellDef="let element"> {{element.CreatedTimestamp}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onSelectItem(row)" class="blog-table-row"></tr>
+  </table>
+  <!--<div>{{stopWatchCaption}}</div>-->
+
+  <!-- Preloader -->
+  <div *ngIf="loading" class="page-preloader">
+    <mat-spinner class="item-preloader"></mat-spinner>
+    <mat-card style="margin-top: 30px;">{{stopWatchCaption}}</mat-card>
+  </div>
+</div>
+
+

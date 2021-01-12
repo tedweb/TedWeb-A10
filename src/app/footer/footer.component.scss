@@ -1,0 +1,36 @@
+@import '../../sass/styles';
+
+.tw-ftr-wrapper {
+  @extend %tw-row;
+  align-items: center;
+  font-size: 1.4rem;
+  background-color: #1F253D;
+  color: rgba(255, 255, 255, 0.7);
+  height: 44px;
+  padding: 0 15px 0 15px;
+
+  .tw-ftr-status {
+    @extend %tw-row;
+    flex: 1 0 auto;
+  }
+
+  .tw-ftr-copyright {
+    @extend %tw-row;
+    flex: 0 1 auto;
+  }
+
+  .flag-icon {
+    width: 1.5em;
+    height: 1.2em;
+  }
+}
+
+.menu-item {
+  font-size: 14px;
+  line-height: 40px;
+  padding: 0 15px 0 10px;
+}
+
+.menu-item:hover {
+  background-color: #e8e8e8;
+}

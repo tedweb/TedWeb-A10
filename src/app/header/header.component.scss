@@ -1,0 +1,227 @@
+@import '../../sass/styles';
+
+.tw-hdr-wrapper {
+  @extend %tw-col;
+
+  .mat-menu-panel {
+    width: 300px;
+  }
+}
+
+.tw-hdr-desktop {
+  @extend %tw-row;
+  align-items: center;
+  height: 60px;
+  padding: 5px 10px 5px 10px;
+  background-color: $tw-hdr-bg-color;
+  box-sizing: border-box;
+
+  .tw-hdr-logo-wrapper {
+    width: 190px;
+    height: 50px;
+    border-right: 1px solid grey;
+    box-sizing: border-box;
+    padding-right: 14px;
+    margin-right: 7px;
+    z-index: 1000000;
+    background-color: $tw-hdr-bg-color;    
+  }
+
+  .tw-hdr-logo {
+    width: auto;
+    height: 50px;
+    cursor: pointer;
+  }
+
+  .tw-hdr-tagline-animated {
+    @extend %tw-row;
+    height: 100%;
+    justify-content: stretch;
+    flex: 2 0 auto;
+    align-items: center;
+    font-size: 1.4em;
+  
+    animation-name: tw-hdr-animate-definition;
+    animation-duration: 2s;
+    animation-timing-function: ease;
+    margin-left: 5px;
+    z-index: 1;
+    margin-top: 4px;
+    text-decoration: none;
+    cursor: pointer;
+  }  
+  
+  .tw-hdr-acct-menu {
+    height: 40px;
+    cursor: pointer;
+    user-select: none;
+  }
+}
+
+.tw-hdr-mobile {
+  @extend %tw-row;
+  align-items: center;
+  justify-content: space-between;
+  height: 46px;
+  padding: 5px 5px 5px 5px;
+  background-color: #7fa6e4;
+  box-sizing: border-box;
+
+
+  .tw-hdr-logo {
+    height: 100%;
+    box-sizing: border-box;
+    width: auto;
+    cursor: pointer;
+    z-index: 1000000;
+  }
+
+}
+
+// .tw-subhdr {
+//   @extend %tw-row;
+//   font-family: 'Assistant', sans-serif;
+//   font-weight: 400;
+//   font-size: 21px;
+//   box-shadow: 0 3px 5px -1px rgba(0,0,0,.2),0 6px 10px 0 rgba(0,0,0,.14),0 1px 18px 0 rgba(0,0,0,.12);
+//   text-decoration: none;
+//   color: white;
+//   padding-right: 15px;
+//   user-select: none;
+//   background-color: $tw-subhdr-bg-color;
+//   height: 50px;
+//   z-index: 150;
+
+//   .tw-subhdr-menu {
+//     @extend %tw-row;
+//     align-items: center;
+//     max-width: 205px;
+//     width: 100%;
+//     transition: max-width 0.2s ease-out;
+//     overflow-x: hidden;
+//     color: white;
+//     white-space: nowrap;
+//     cursor: pointer;
+//     font-size: 18px;
+//     margin: 4px;
+//     border-radius: 5px;
+//     background: linear-gradient(#4A5582, #131e47);
+//     padding: 5px 0 5px 10px;
+//     border: 1px solid rgba(0, 0, 0, 0.14);
+
+//     button {
+//       @extend %tw-row;
+//     }
+
+//     img {
+//       margin-right: 20px;
+//     }
+//   }
+  
+//   .tw-subhdr-menu-min {
+//     max-width: 45px;
+//   }
+  
+//   .tw-subhdr-page-title {
+//     @extend %tw-row;
+//     flex: 1 0 auto;
+//     padding-left: 10px;
+//     align-items: center;
+//   }
+
+//   .tw-subhdr-acct-menu {
+//     padding: 10px;
+//     width: 30px;
+//   }
+
+//   .tw-subhdr-app-menu {
+//     @extend %tw-row;
+//     justify-content: center;
+//     align-items: center;
+//     max-width: 30px;
+//   }
+// }
+
+// img {
+//   height: $tw-hdr-image-size;
+// }
+
+// .tw-hdr-menu {
+//   @extend %tw-col;
+//   width: 300px;
+//   justify-content: center;
+//   align-items: stretch;
+// }
+
+// .tw-hdr-menu-item {
+//   font-size: 14px;
+//   height: 36px;
+//   line-height: 36px;
+//   cursor: pointer;
+//   overflow: hidden;
+//   box-sizing: border-box;
+//   padding: 0 10px 0 20px;
+// }
+
+// .tw-hdr-menu-item:hover {
+//   background-color: #e8e8e8;
+// }
+
+.tw-hdr-menu-button {
+  @extend %tw-row;
+  align-items: center;
+}
+
+.tw-hdr-menu-item-icon {
+  width: auto;
+  height: auto;
+  max-width: 30px;
+  max-height:30px;
+  font-size: 2.3em;
+  overflow: hidden;
+  margin-right: 16px;
+  color: red;
+  fill: red;
+}
+
+.tw-hdr-menu-item-image {
+  width: auto;
+  height: auto;
+  max-width: 30px;
+  max-height:30px;
+  font-size: 2.3em;
+  overflow: hidden;
+  margin-right: 16px;
+  color: red;
+}
+
+.tw-hdr-menu-item-font {
+  width: auto;
+  height: auto;
+  max-width: 30px;
+  max-height:30px;
+  font-size: 1.9em;
+  overflow: hidden;
+  margin-right: 16px;
+  color: red;
+}
+
+
+
+// .tw-hdr-action-menu {
+//   padding: 0 15px 0 10px;
+//   line-height: 40px;
+//   border-bottom: 1px solid #CCCCCC;
+// }
+
+@keyframes tw-hdr-animate-definition {
+  from {
+    margin-left: -250px;
+    opacity: 0;
+  }
+
+  to {
+    margin-left: 5px;
+    opacity: 1;
+  }
+}

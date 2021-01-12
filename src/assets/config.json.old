@@ -1,0 +1,210 @@
+{
+  "company": "TedWeb",
+  "company_logo": "../assets/img/logo-tedweb.png",
+  "tagline": "Personal Development Portal",
+  "app_id": "",
+  "api": "",
+  "langs": [
+    {
+      "id": "2",
+      "name": "English (US)",
+      "abbr": "us",
+      "icon": "flag-icon flag-icon-us"
+    },
+    {
+      "id": "3",
+      "name": "Español",
+      "abbr": "es",
+      "icon": "flag-icon flag-icon-es"
+    }
+  ],
+  "apps": [
+    {
+      "id": "1",
+      "name": "Frontpage News",
+      "path": "public",
+      "description": "Public front end",
+      "fontClass": "fas fa-newspaper tw-hdr-menu-item-font",
+      "version": "1.0.0",
+      "menu": {
+        "autoShrinkMenusItems": true,
+        "orientation": "vertical",
+        "lockSelectMenuItems": false,
+        "isResizable": false,
+        "isMinimized": false,
+        "items": [
+          {
+            "id": "1.0",
+            "caption": "About Us",
+            "link": "",
+            "notification": "",
+            "icon": "question_answer",
+            "items": [
+              {
+                "id": "1.1",
+                "caption": "Overview",
+                "notification": "",
+                "fontClass": "fas fa-info-circle tw-nav-icon-size",
+                "items": [
+                  {
+                    "id": "1.2.1",
+                    "caption": "Logs",
+                    "link": "settings",
+                    "notification": "",
+                    "fontClass": "fas fa-bookmark tw-nav-icon-size",
+                    "items": []
+                  },
+                  {
+                    "id": "1.2.2",
+                    "caption": "Snapshot",
+                    "link": "settings",
+                    "notification": "",
+                    "fontClass": "fas fa-bookmark tw-nav-icon-size",
+                    "items": []
+                  }    
+                ]
+              },
+              {
+                "id": "1.2",
+                "caption": "History",
+                "link": "settings",
+                "notification": "",
+                "fontClass": "fas fa-bookmark tw-nav-icon-size",
+                "items": []
+              },
+              {
+                "id": "1.3",
+                "caption": "Building & Grounds",
+                "link": "settings",
+                "notification": "",
+                "icon": "deck",
+                "items": []
+              },
+              {
+                "id": "1.4",
+                "caption": "Directions",
+                "link": "settings",
+                "notification": "",
+                "fontClass": "fas fa-map-marker-alt tw-nav-icon-size",
+                "items": []
+              }
+            ]
+          },
+          {
+            "id": "2.0",
+            "caption": "Activities",
+            "link": "",
+            "notification": "",
+            "fontClass": "fas fa-running tw-nav-icon-size",
+            "items": [
+              {
+                "id": "2.1",
+                "caption": "Swim",
+                "link": "settings",
+                "notification": "",
+                "fontClass": "fas fa-swimmer tw-nav-icon-size",
+                "items": []
+              },
+              {
+                "id": "2.2",
+                "caption": "Tennis",
+                "link": "settings",
+                "notification": "",
+                "icon": "sports_tennis",
+                "items": []
+              },
+              {
+                "id": "2.3",
+                "caption": "Events",
+                "link": "settings",
+                "notification": "",
+                "icon": "event_seat",
+                "items": []
+              },
+              {
+                "id": "2.4",
+                "caption": "Private Parties",
+                "link": "settings",
+                "notification": "2",
+                "fontClass": "fas fa-glass-cheers tw-nav-icon-size",
+                "items": []
+              }
+            ]
+          },
+          {
+            "id": "3.0",
+            "caption": "Membership",
+            "link": "",
+            "notification": "",
+            "icon": "people_alt",
+            "items": [
+              {
+                "id": "3.1",
+                "caption": "Requirements",
+                "link": "apps",
+                "notification": "",
+                "icon": "check_circle_outline",
+                "items": []
+              },
+              {
+                "id": "3.2",
+                "caption": "Bylaws",
+                "link": "apps",
+                "notification": "",
+                "icon": "menu_book",
+                "items": []
+              },
+              {
+                "id": "3.3",
+                "caption": "Application",
+                "link": "apps",
+                "notification": "",
+                "icon": "list_alt",
+                "items": []
+              },
+              {
+                "id": "3.4",
+                "caption": "Join or Renew",
+                "link": "apps",
+                "notification": "",
+                "fontClass": "fas fa-user-clock",
+                "items": []
+              }
+            ]
+          },
+          {
+            "id": "4.0",
+            "caption": "Contact Us",
+            "link": "apps",
+            "notification": "",
+            "fontClass": "fas fa-phone-alt tw-nav-icon-size",
+            "items": []
+          }
+        ]
+      }
+    }
+  ],
+  "user": {
+    "id": "1",
+    "app_id":  "",
+    "name": "John Doe",
+    "lang": "us",
+    "actions": [
+      {
+        "id": "1",
+        "name": "Manage Profile",
+        "icon": "settings"
+      },
+      {
+        "id": "2",
+        "name": "Change Profile",
+        "icon": "settings"
+      },
+      {
+        "id": "3",
+        "name": "Logout",
+        "icon": "cancel"
+      }
+    ]
+  }
+}

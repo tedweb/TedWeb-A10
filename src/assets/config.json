@@ -1,0 +1,234 @@
+{
+  "company": "TedWeb",
+  "company_logo": "../assets/img/logo-tedweb2.png",
+  "tagline": "Personal Development Portal",
+  "app_id": "",
+  "api": "",
+  "langs": [
+    {
+      "id": "2",
+      "name": "English (US)",
+      "abbr": "us",
+      "icon": "flag-icon flag-icon-us"
+    },
+    {
+      "id": "3",
+      "name": "Español",
+      "abbr": "es",
+      "icon": "flag-icon flag-icon-es"
+    }
+  ],
+  "apps": [
+    {
+      "id": "1",
+      "name": "Frontpage News",
+      "path": "public",
+      "description": "Public front end",
+      "fontClass": "fas fa-newspaper tw-hdr-menu-item-font",
+      "version": "1.0.0",
+      "icon": "",
+      "image": "",
+      "page": "",
+      "menu": {
+        "autoShrinkMenusItems": true,
+        "lockSelectMenuItems": false,
+        "minimize": false,
+        "direction": "column",
+        "buttonWidth": "200px",
+        "buttonHeight": "50px",
+        "items": [
+          {
+            "caption": "AWS",
+            "link": "",
+            "notification": "",
+            "image": "./assets/img/aws_icon.png",
+            "items": [
+              {
+                "caption": "Lambdas",
+                "link": "",
+                "notification": "",
+                "image": "./assets/img/aws_lambda.png",
+                "items": [
+                  {
+                    "caption": "Overview",
+                    "notification": "",
+                    "icon": "bookmark",
+                    "items": [
+                      {
+                        "caption": "Sub Menu 1",
+                        "link": "lambdas/overview/submenu1",
+                        "notification": "",
+                        "icon": "bookmark",
+                        "items": []
+                      },
+                      {
+                        "caption": "Sub Menu 2",
+                        "link": "lambdas/overview/submenu2",
+                        "notification": "",
+                        "icon": "bookmark",
+                        "items": []
+                      },
+                      {
+                        "caption": "Sub Menu 3",
+                        "link": "lambdas/overview/submenu3",
+                        "notification": "",
+                        "icon": "bookmark",
+                        "items": []
+                      }
+                    ]
+                  },
+                  {
+                    "caption": "Blog Sample",
+                    "link": "lambdas/blog-sample",
+                    "notification": "",
+                    "fontClass": "fas fa-blog fa-lg",
+                    "items": [
+                      {
+                        "caption": "Sub Menu 1",
+                        "link": "lambdas/overview/submenu1",
+                        "notification": "",
+                        "icon": "bookmark",
+                        "items": []
+                      },
+                      {
+                        "caption": "Sub Menu 2",
+                        "link": "lambdas/overview/submenu2",
+                        "notification": "",
+                        "icon": "bookmark",
+                        "items": []
+                      },
+                      {
+                        "caption": "Sub Menu 3",
+                        "link": "lambdas/overview/submenu3",
+                        "notification": "",
+                        "icon": "bookmark",
+                        "items": []
+                      }
+                    ]
+                  },
+                  {
+                    "caption": "Alexa Sample",
+                    "link": "alexa_sample",
+                    "notification": "",
+                    "image": "./assets/img/alexa.svg",
+                    "items": []
+                  },
+                  {
+                    "caption": "Twilio Sample",
+                    "link": "twilio_sample",
+                    "notification": "",
+                    "image": "./assets/img/twilio.svg",
+                    "items": []
+                  }
+                ]
+              },
+              {
+                "caption": "DynamoDB",
+                "link": "",
+                "notification": "",
+                "image": "./assets/img/aws_dynamodb.png",
+                "items": [
+                  {
+                    "caption": "Overview",
+                    "link": "dynamodb/overview",
+                    "notification": "",
+                    "icon": "bookmark",
+                    "items": []
+                  },
+                  {
+                    "caption": "Sample",
+                    "link": "dynamodb/sample1",
+                    "notification": "",
+                    "image": "./assets/img/sample_icon.png",
+                    "items": []
+                  }
+                ]
+              },
+              {
+                "caption": "Cloud Formation",
+                "link": "",
+                "notification": "",
+                "image": "./assets/img/aws_cloudformation.png",
+                "items": [
+                  {
+                    "caption": "Overview",
+                    "link": "cloudformation/overview",
+                    "notification": "",
+                    "icon": "bookmark",
+                    "items": []
+                  },
+                  {
+                    "caption": "Sample",
+                    "link": "cloudformation/sample1",
+                    "notification": "",
+                    "image": "./assets/img/sample_icon.png",
+                    "items": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "caption": "Campaigns",
+            "link": "campaigns",
+            "notification": "",
+            "icon": "group",
+            "items": []
+          },
+          {
+            "caption": "Settings",
+            "link": "settings",
+            "notification": "",
+            "icon": "settings",
+            "items": []
+          },
+          {
+            "caption": "Reports",
+            "link": "",
+            "notification": "",
+            "icon": "insert_chart",
+            "items": [
+              {
+                "caption": "History",
+                "link": "history",
+                "notification": "",
+                "fontClass": "fas fa-bookmark",
+                "items": []
+              },
+              {
+                "caption": "ROI",
+                "link": "roi",
+                "notification": "",
+                "icon": "monetization_on",
+                "items": []
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "user": {
+    "id": "1",
+    "app_id":  "",
+    "name": "John Doe",
+    "lang": "us",
+    "actions": [
+      {
+        "id": "1",
+        "name": "Manage Profile",
+        "icon": "settings"
+      },
+      {
+        "id": "2",
+        "name": "Change Profile",
+        "icon": "settings"
+      },
+      {
+        "id": "3",
+        "name": "Logout",
+        "icon": "cancel"
+      }
+    ]
+  }
+}

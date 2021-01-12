@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>TW Frontpage POC - for internal review only</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="file:///C:/Projects/TedWeb-A8/public/src/template.css" type="text/css" mesdia="screen">
+</head>
+<body>
+  <!-- Main Content -->
+  <main>
+    <!-- Header -->
+    <header class="header tw-hdr-top" [ngClass.xs]="{'tw-hidden':true}">
+        <div class="tw-hdr-logo_wrapper" (click)="onHome()">
+          <img class="tw-hdr-logo" src="{{this.config.company_logo}}" />
+        </div>
+        <div class="tw-hdr-tagline-wrapper">
+          <div class="tw-hdr-tagline-animated" matTooltip="Home">{{tagline}}</div>
+        </div>
+        <div class="tw-hdr-acct-menu" mat-button matTooltip="Menu" [matMenuTriggerFor]="action_menu">
+          <img src="./assets/img/account_circle.png" />
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        Hero
+    </section>
+
+  <!-- Content -->
+    <section class="content">
+        Content
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        Footer
+    </footer>
+
+  </main>
+</body>
+</html>

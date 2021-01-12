@@ -1,0 +1,97 @@
+  <!-- Main Content -->
+  <main>
+    <tw-header
+        [selectedApp]="this.selectedApp"
+        [selectedPage]="this.displayPage"
+        (signIn)="onSignIn()"
+        (createAccount)="onCreateAccount()"
+        (floatNavMenu)="onFloatNavMenuToggle()"
+        (appSelect)="onAppSelect($event)"
+        (homeSelect)="onPageSelect($event)"
+        (actionSelect)="onActionSelect($event)"
+    ></tw-header>
+
+    <div class="tw-body">
+        <!-- Title Bar -->
+        <div
+            [ngClass.xs]="{'tw-hidden':true}"
+            [ngClass.gt-xs]="{
+                'tw-titlebar': true,
+                'tw-titlebar-portal': navDirection == 'column'
+            }"
+        >
+            <div
+                class="tw-app-launcher"
+                [style.width]="this.menu.buttonWidth"
+                [style.height]="this.menu.buttonHeight"
+            >
+                <div class="material-icons">apps</div>
+                <div class="tw-app-caption">Frontpage</div>
+            </div>
+        </div>
+
+        <!-- Nav Panel -->
+        <div
+            class="tw-nav-pane"
+            [ngClass.gt-xs]="{
+                'tw-nav-pane-portal': navDirection == 'column'
+            }"
+            [style.width]="navPanelWidth"
+        >
+            <tw-angular-nav
+                [ngClass.gt-xs]="{
+                    'tw-nav-collapsed-gt-xs' : this.menuIsCollapsed,
+                    'tw-nav-expanded-gt-xs' : !this.menuIsCollapsed
+                }"
+                [ngClass.xs]="{
+                    'tw-hidden' : !this.displayFloatingNavMenu,
+                    'tw-nav-expanded-xs' : this.displayFloatingNavMenu
+                }"
+                [menu]="this.menu"
+                [selectedMenu]="this.selectedApp.page"
+                (menuSelect)="onMenuSelect($event)"
+            ></tw-angular-nav>
+
+            <div
+                *ngIf="this.navDirection == 'column'"
+                [ngClass]="{ 'tw-nav-minimizer' : true }"
+                (click)="onToggleNavMode()"
+            >
+                <div
+                    class="tw-nav-container-min-icon tw-nav-chevron left"
+                    [ngClass]="{ 'right' : menu.minimize }">
+                </div>
+                <div
+                    class="tw-nav-container-min-icon tw-nav-chevron left"
+                    [ngClass]="{ 'right' : menu.minimize }">
+                </div>
+            </div>
+        
+        </div>
+
+        <!-- Content Panel -->
+        <div
+            class="tw-content-pane"
+            [style.height]="contentPaneHeight"
+            [ngClass.xs]="{
+                'tw-content-pane' : !displayFloatingNavMenu,
+                'tw-hidden' : displayFloatingNavMenu
+            }"
+            [ngClass.gt-xs]="{
+                'tw-content-pane' : true,
+                'tw-content-pane-portal': navDirection == 'column'
+            }"
+        >
+            <button (click)="onToggleNavDirection()">Toggle Nav Layout</button>
+            <div style="color: black;">({{contentPaneHeight}})</div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <tw-footer
+        class="tw-footer"
+        *ngIf="this.config.user !== undefined"
+        [version]="this.version"
+        (langSelect)="onLangSelect($event)"
+    ></tw-footer>
+</main>

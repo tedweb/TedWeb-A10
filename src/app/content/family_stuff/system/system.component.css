@@ -1,0 +1,151 @@
+.page {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.button-panel {
+  position: absolute;
+  bottom: 10px;
+  right: 25px;
+  width: 70px;
+}
+
+.button-item {
+  margin-bottom: 14px;
+}
+
+.tab-header {
+  margin-bottom: 14px;
+  font-size: 24px;
+  font-family: Assistant;
+  color: dimgray;
+}
+
+.tab-content {
+  margin: 30px 50px 20px 50px;
+}
+
+.content-partial {
+  width: 500px;
+}
+
+.content-full {
+  width: 100%;
+}
+
+
+
+
+
+
+
+
+.layer1backgroundimage {
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.layer1backgroundcolor {
+  background-color: rgba(83, 75, 99, 0.6);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.container1 {
+  position: relative;
+  align-self: center;
+  width: 1100px;
+  height: 500px;
+  background-color: transparent;
+}
+
+.nav-buttons {
+  position: absolute;
+  bottom: 10px;
+}
+
+.layer1 {
+  background-color: #2b2635;
+  position: absolute;
+  top: 40px;
+  bottom: 50px;
+  left: 0;
+  right: 0;
+  padding: 40px;
+  box-shadow: 0 0 30px 5px #999; /* inner white */
+}
+
+.layer2 {
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 50px;
+  width: auto;
+}
+
+.header {
+  font-family: Oswald;
+  font-size: 48px;
+  color: white;
+}
+
+.subheader {
+  font-family: Assistant;
+  font-size: 28px;
+  color: white;
+}
+
+.body {
+  font-family: Assistant;
+  font-size: 16px;
+  color: white;
+  margin: 0 0 100px 0;
+}
+
+.logo {
+}
+
+.nav-menu-icon {
+  align-self: baseline;
+  width: auto;
+  height: auto;
+  font-size: 48px;
+  cursor: pointer;
+  max-width: 60px;
+  margin: 20px;
+}
+
+.layer2backgroundimage {
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.layer2backgroundcolor {
+  background-color: rgba(75, 99, 83, 0.6);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.container2 {
+  position: relative;
+  align-self: center;
+  width: 1100px;
+  height: 500px;
+  background-color: transparent;
+}

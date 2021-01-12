@@ -1,0 +1,216 @@
+$tw-hdr-bg-color: white;
+$tw-nav-scrolltrack-bgcolor: transparent;
+$tw-nav-scrollthumb-bgcolor: rgba(255, 255, 255, 0.75);
+
+.tw-nav-desktop {
+  display: flex;
+}
+
+.tw-nav-mobile {
+  display: flex;
+}
+
+.tw-nav-container {
+  width: 100%;
+  height: 100%;
+  padding: 0 3px;
+  background-color: inherit;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex: 0 1 auto;
+  box-sizing: border-box;
+  font-weight: 300;
+}
+
+.tw-nav-container-mini {
+  width: 60px;
+  overflow-x: hidden;
+}
+
+.tw-nav-minimizer {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1.4em;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding-left: 22px;  
+}
+
+
+.tw-nav-shape {
+  width: 7px;
+  height: 5px;
+  position: relative;
+
+  .triangle:before {
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 5px solid;
+    background-color: transparent;
+    position: absolute;
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+  }
+
+  .triangle.up:before {
+    transform: rotate(180deg);
+    transition-Duration: 0.5s;
+    transition-Timing-Function: ease-in-out;
+  }
+  
+  .triangle.down:before {
+    transform: rotate(0deg);
+    transition-Duration: 0.5s;
+    transition-Timing-Function: ease-in-out;
+  }  
+}
+
+
+/* Firefox */
+.tw-scroller {
+  background-color: inherit;
+  scrollbar-color: $tw-nav-scrollthumb-bgcolor $tw-nav-scrolltrack-bgcolor; /* thumb and track color */
+  scrollbar-width: 3px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+/* Chrome */
+.tw-scroller::-webkit-scrollbar {
+  width: 3px;
+}
+
+.tw-scroller::-webkit-scrollbar-track {
+  background: $tw-nav-scrolltrack-bgcolor;
+}
+
+.tw-scroller::-webkit-scrollbar-thumb {
+  background: $tw-nav-scrollthumb-bgcolor;
+  border-right: 1px solid $tw-nav-scrolltrack-bgcolor;
+}
+
+.tw-hidden {
+  display: none;
+}
+
+
+tw-angular-navitem {
+  background-color: inherit;
+}
+
+.tw-nav-item-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: inherit;
+  align-self: stretch;
+}
+
+.tw-nav-item {
+  display: flex;
+  cursor: pointer;
+  font-size: 1.4em;
+  overflow: hidden;
+  white-space: nowrap;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 4px 15px 0 10px;
+  border-bottom: 4px solid transparent;
+  width: var(--tw-nav-buttonWidth);
+  height: var(--tw-nav-buttonHeight);
+}
+
+.tw-nav-item:hover {
+  background-color: rgba(150, 150, 240, 0.10);
+}
+
+.tw-nav-item-horizontal {
+  border-right: 1px solid rgba(30, 30, 30, 0.3);
+}
+
+.tw-nav-item-horizontal-caret {
+  padding-bottom: 0;
+  border-bottom: 4px solid #FDDB27FF;
+  transition: border-bottom 0.5s;
+}
+
+.tw-nav-item-vertical {
+  border-bottom: 1px solid rgba(30, 30, 30, 0.2);
+}
+
+.tw-nav-item-vertical-caret {
+  padding-left: 6px;
+  border-left: 4px solid #FDDB27FF;
+}
+
+.tw-nav-item-xs {
+  width: 100%;
+}
+
+.tw-nav-item-graphic-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  overflow: hidden;
+  height: 100%;
+  width: 25px;
+  position: relative;
+  padding: 2px 0;
+  box-sizing: border-box;
+
+  .graphic {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    margin: 2px 0;
+  }
+
+  .icon {
+    font-size: 1.4em;
+    overflow: hidden;
+    width: auto;
+    height: auto;
+  }
+  
+  .image {
+    font-size: 1.4em;
+    overflow: hidden;
+    max-width: 20px;
+    width: auto;
+    height: auto;
+  }    
+}
+
+.tw-nav-item-caption {
+  flex: 1;
+  overflow: hidden;
+  padding: 0 10px 0 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: 'Lato', sans-serif;
+}
+
+.tw-nav-item-submenu-tray {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden;
+  transition-Property: height;
+  transition-Duration: 0.25s;
+  transition-Timing-Function: ease-in-out;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 10px 20px -10px rgba(0,0,0,.4);
+}
+

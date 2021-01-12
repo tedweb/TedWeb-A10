@@ -1,0 +1,65 @@
+<div style="overflow-y: scroll; height: 100%;">
+
+  <div fxLayout="column" class="page" fxLayoutAlign="end center" id="section1">
+    <div fxLayoutAlign="center center" class="layer1backgroundimage">
+      <div fxLayoutAlign="center center" class="layer1backgroundcolor">
+        <div fxLayoutAlign="center center" class="container1">
+          <div class="layer1" fxLayout="column" fxLayoutAlign="end start">
+            <div class="header">
+              Sign into your account
+            </div>
+            <div class="subheader">
+              Monitor performace, anywhere, anytime
+            </div>
+            <div class="body">
+              Engage the workforce and drive performance metrics directly from the app
+            </div>
+            <div class="logo">
+              <img src="./assets/img/logo-3.png" />
+            </div>
+          </div>
+          <div fxFlex class="layer2">
+            <form fxLayout="column" fxLayoutAlign="space-between stretch">
+              <div fxLayout="row" style="margin-bottom: 15px;">
+                <div fxFlex style="font-family: Assistant; font-size: 32px;">Sign In</div>
+                <div *ngIf="errorMessage !== ''" fxFlexAlign="end" style="margin-bottom: 3px; font-size: 14px; font-weight: bold; color: red; background-color: gold; padding: 4px;">{{errorMessage}}</div>
+              </div>
+
+              <mat-form-field appearance="outline" style="margin-bottom: 10px;">
+                <mat-label>Email Address</mat-label>
+                <input matInput #email (keyup)="onKeyEmail(email.value)" [formControl]="emailFormControl" [errorStateMatcher]="matcher">
+                <mat-hint>Use 'user@s2n' for testing.</mat-hint>
+                <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                  Please enter a valid email address
+                </mat-error>
+                <mat-error *ngIf="emailFormControl.hasError('required')">
+                  Email is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput #password (keyup)="onKeyPassword(password.value)" [type]="hide_pw ? 'password' : 'text'" [formControl]="passwordFormControl" [errorStateMatcher]="matcher">
+                <mat-icon matSuffix (click)="hide_pw = !hide_pw">{{hide_pw ? 'visibility' : 'visibility_off'}}</mat-icon>
+                <mat-error *ngIf="passwordFormControl.hasError('required')">
+                  Password is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+
+              <a fxFlexAlign="end" href="./" tabindex="-1">Forgot Password?</a>
+              <button mat-raised-button (click)="onSignIn()" color="primary" style="margin: 20px 0 20px 0;">Sign In</button>
+              <a fxFlexAlign="center" href="./" tabindex="-1">Need an account?</a>
+              <div style="height: 30px;">&nbsp;</div>
+
+              <div style="color: #666; font-size: 14px; font-family: Assistant;">
+                By submitting, you confirm that you are authorized to use the number entered and agree to receive SMS texts to verify you own the number. Carrier fees may apply.
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>

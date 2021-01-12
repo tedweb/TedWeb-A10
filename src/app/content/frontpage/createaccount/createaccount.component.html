@@ -1,0 +1,72 @@
+<div style="overflow-y: scroll; height: 100%;">
+
+  <div fxLayout="column" class="page" fxLayoutAlign="end center" id="section1">
+    <div fxLayoutAlign="center center" class="layer1backgroundimage">
+      <div fxLayoutAlign="center center" class="layer1backgroundcolor">
+        <div fxLayoutAlign="center center" class="container1">
+          <div class="layer1" fxLayout="column" fxLayoutAlign="end start">
+            <div class="header">
+              Create your account
+            </div>
+            <div class="subheader">
+              Monitor performace, anywhere, anytime
+            </div>
+            <div class="body">
+              Engage the workforce and drive performance metrics directly from the app
+            </div>
+            <div class="logo">
+              <img src="./assets/img/logo-3.png" />
+            </div>
+          </div>
+          <div fxFlex class="layer2" style="width: 480px; background-color: #efefef; padding: 20px 40px 0 40px; border: solid #999;border-radius: 10px;">
+            <form class="example-form" fxLayout="column">
+              <div fxLayout="row" fxLayoutAlign="space-between center">
+                <mat-form-field fxFlex>
+                  <input matInput placeholder="First Name">
+                </mat-form-field>
+                <div style="width: 20px;"></div>
+                <mat-form-field fxFlex>
+                  <input matInput placeholder="Last Name">
+                </mat-form-field>
+              </div>
+
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Email" [formControl]="emailFormControl" [errorStateMatcher]="matcher">
+                <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                  Please enter a valid email address
+                </mat-error>
+                <mat-error *ngIf="emailFormControl.hasError('required')">
+                  Email is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+
+              <mat-form-field fxFlex>
+                <input matInput placeholder="Phone">
+              </mat-form-field>
+
+              <mat-form-field>
+                <input matInput placeholder="Password" [type]="hide_pw1 ? 'password' : 'text'">
+                <mat-icon matSuffix (click)="hide_pw1 = !hide_pw1">{{hide_pw1 ? 'visibility' : 'visibility_off'}}</mat-icon>
+              </mat-form-field>
+
+              <mat-form-field>
+                <input matInput placeholder="Confirm Password" [type]="hide_pw2 ? 'password' : 'text'">
+                <mat-icon matSuffix (click)="hide_pw2 = !hide_pw2">{{hide_pw2 ? 'visibility' : 'visibility_off'}}</mat-icon>
+              </mat-form-field>
+
+              <mat-checkbox style="color: #666; font-size: 14px; font-family: Assistant;">I have read and agree to the User Agreement and Privacy Policy.</mat-checkbox>
+
+              <button mat-raised-button color="accent" style="margin: 20px 0 20px 0;">Create!</button>
+
+             <div style="color: #666; font-size: 14px; font-family: Assistant;">
+                By submitting, you confirm that you are authorized to use the number entered and agree to receive SMS texts to verify you own the number. Carrier fees may apply.
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>

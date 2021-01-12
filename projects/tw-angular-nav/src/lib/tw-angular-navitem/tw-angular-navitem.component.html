@@ -1,0 +1,64 @@
+<div
+    class="tw-nav-item-container"
+    [title]="getTitleCaption()"
+>
+    <div
+        #navitem
+        class="tw-nav-item"
+        [ngClass.xs]="{ 'tw-nav-item-xs' : true }"
+        [style.height]="buttonHeight"
+        [style.width]="buttonWidth"
+        (click)="onMenuSelect([])"
+    >
+        <div
+            *ngIf="graphicType(menu)"
+            class="tw-nav-item-graphic-container"
+        >
+            <div class="tw-nav-shape">
+                <div [ngClass]="{
+                    'triangle up' : false
+                }"></div>
+            </div>
+            <div class="graphic">
+                <mat-icon *ngIf="graphicType(menu) === 'icon'" class="icon">{{menu.icon}}</mat-icon>
+                <i *ngIf="graphicType(menu) === 'font'" class="icon nav-menu-fa {{menu.fontClass}}"></i>
+                <img *ngIf="graphicType(menu) === 'image'" class="image" src="{{menu.image}}" />
+            </div>
+            <div class="tw-nav-shape">
+                <div [ngClass]="{
+                    'triangle down' : showMiniExpander(menu)
+                }"></div>
+            </div>
+        </div>
+        <div
+            *ngIf="!minimize"
+            class="tw-nav-item-caption">
+            {{menu.caption}}&nbsp;&nbsp;{{menu.notification}}
+        </div>
+        <div *ngIf="!minimize && hasChildren(menu)" class="tw-nav-shape">
+            <div
+                class="triangle"
+                [ngClass]="{
+                    'up'   : isExpanded(menu),
+                    'down' : !isExpanded(menu)                    
+                }">
+            </div>
+        </div>
+    </div>
+    
+    <div
+        #navitemcontainer
+        class="tw-nav-item-submenu-tray"
+        [style.height.px]="menu.containerHeight"
+    >
+        <tw-angular-navitem
+            *ngFor="let item of menu.items"
+            [menu]="item"
+            [buttonHeight]="buttonHeight"
+            [buttonWidth]="buttonWidth"    
+            [isRoot]="false"
+            (menuSelect)="onMenuSelect($event)">
+        </tw-angular-navitem>
+    </div>
+    <!-- <div style="display: flex; flex-direction:row; align-items: stretch; background-color: aqua;"></div> -->
+</div>

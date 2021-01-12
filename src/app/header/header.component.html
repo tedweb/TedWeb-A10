@@ -1,0 +1,37 @@
+<div class="tw-hdr-wrapper">
+  <!-- Top Header Section -->
+  <div class="tw-hdr-desktop" [ngClass.xs]="{'tw-hidden':true}">
+    <div class="tw-hdr-logo-wrapper">
+      <img class="tw-hdr-logo" src="{{this.config.company_logo}}" (click)="onHome()" />
+    </div>
+    <div class="tw-hdr-tagline-animated" matTooltip="Home">{{tagline}}</div>
+    <img class="tw-hdr-acct-menu" src="./assets/img/account_circle.png" mat-button matTooltip="Menu" [matMenuTriggerFor]="action_menu" />
+  </div>
+  <div [ngClass.gt-xs]="{'tw-hidden':true}" class="tw-hdr-mobile">
+    <i class="material-icons">apps</i>
+    <img class="tw-hdr-logo" src="{{this.config.company_logo}}" (click)="onHome()" />
+    <i class="material-icons" (click)="onFloatNavMenu('Menu')">menu</i>
+  </div>
+
+  <!-- App Menu -->
+  <mat-menu #app_menu="matMenu" yPosition="below" [overlapTrigger]="false">
+    <button class="tw-hdr-menu-button" mat-menu-item *ngFor="let app of this.config.apps" (click)="onAppSelect(app)" matTooltip="{{app.description}}">
+      <mat-icon *ngIf="graphicType(app) === 'icon'" class="tw-hdr-menu-item-icon">{{app.icon}}</mat-icon>
+      <img *ngIf="graphicType(app) === 'image'" class="tw-hdr-menu-item-image
+      
+      " src="{{app.image}}" />
+      <i *ngIf="graphicType(app) === 'font'" class="{{app.fontClass}}"></i>
+      {{app.name}}
+    </button>
+  </mat-menu>
+
+  <!-- Action Menu -->
+  <mat-menu class="tw-hdr-menu" #action_menu="matMenu" [overlapTrigger]="false">
+    <div class="actionHeader">
+      <div>{{this.config.user.name}}</div>
+    </div>
+    <div class="tw-hdr-menu-item" *ngFor="let action of this.config.user.actions" (click)="onActionSelect(action)">
+      <div>{{action.name}}</div>
+    </div>
+  </mat-menu>
+</div>

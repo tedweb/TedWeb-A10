@@ -1,0 +1,30 @@
+<!-- Navigator -->
+<div
+    class="tw-nav-container"
+    [ngClass.xs]="{
+        'tw-nav-mobile' : true,
+        'tw-scroller' : true
+    }"
+    [ngClass.gt-xs]="{
+        'tw-nav-desktop' : true,
+        'tw-nav-container-mini' : minimize,
+        'tw-scroller' : direction == 'column'
+    }"
+    [style.max-height]="menu.buttonHeight"
+    >
+    <tw-angular-navitem
+        *ngFor="let item of menu.items"
+        [ngClass]="{
+            'tw-nav-item-horizontal' : direction == 'row',
+            'tw-nav-item-vertical' : direction == 'column',
+            'tw-nav-item-horizontal-caret' : direction == 'row',
+            'tw-nav-item-vertical-caret' : direction == 'column'
+            }"
+        [menu]="item"
+        [minimize]="minimize" 
+        [buttonHeight]="buttonHeight"
+        [buttonWidth]="buttonWidth"
+        (menuSelect)="onMenuSelect($event)"
+    >
+    </tw-angular-navitem>
+</div>

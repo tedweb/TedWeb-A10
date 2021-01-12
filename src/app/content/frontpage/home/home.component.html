@@ -1,0 +1,69 @@
+<div class="tw-home-content-wrapper tw-scroller">
+  <div fxLayout="column" class="page" fxLayoutAlign="end center" id="section1">
+    <div fxLayoutAlign="center center" class="layer1backgroundimage">
+      <div fxLayoutAlign="center center" class="layer1backgroundcolor">
+        <div fxLayoutAlign="center center" class="container1">
+          <div class="layer1" fxLayout="column" fxLayoutAlign="end start">
+            <div class="header">
+              Patient Communication
+            </div>
+            <div class="subheader">
+              Engage patients to take action
+            </div>
+            <div class="body">
+              By using Care Outreach, messages can be automatically sent via email, text or voice
+            </div>
+            <div class="logo">
+              <img src="./assets/img/logo-3.png" style="width: 300px;" />
+            </div>
+          </div>
+          <div fxFlex class="layer2">
+            <img src="./assets/img/phone.png" />
+          </div>
+        </div>
+
+        <div fxLayout="row" class="nav-buttons">
+          <img class="nav-menu-icon" [ngx-scroll-to]="'#section2'" src="./assets/img/arrow_circle.png" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div fxLayout="column" class="page" fxLayoutAlign="end center" id="section2">
+    <div fxLayoutAlign="center center" class="layer2backgroundimage">
+      <div fxLayoutAlign="center center" class="layer2backgroundcolor">
+        <div fxLayoutAlign="center center" class="container2">
+          <div class="layer1" fxLayout="column" fxLayoutAlign="end start">
+            <div class="header">
+              Real-time analytics
+            </div>
+            <div class="subheader">
+              Monitor performace, anywhere, anytime
+            </div>
+            <div class="body">
+              Engage the workforce and drive performance metrics directly from the app
+            </div>
+            <div class="logo">
+              <img src="./assets/img/logo-3.png" style="width: 300px;" />
+            </div>
+          </div>
+          <div fxFlex class="layer2">
+            <img height="100%" src="./assets/img/phone.png" />
+          </div>
+        </div>
+
+        <div fxLayout="row" class="nav-buttons">
+          <img class="nav-menu-icon" style="transform: rotate(180deg);" [ngx-scroll-to]="'#section1'" src="./assets/img/arrow_circle.png" />
+          <img class="nav-menu-icon" [ngx-scroll-to]="'#section3'" src="./assets/img/arrow_circle.png" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div fxLayout="column" fxLayoutAlign="stretch center" id="section3" style="background-color: antiquewhite; height: 100%;">
+    <div fxFlex>Section III</div>
+    <div fxLayout="row" fxLayoutAlign="stretch center">
+      <img class="nav-menu-icon" style="transform: rotate(180deg);" [ngx-scroll-to]="'#section2'" src="./assets/img/arrow_circle.png" />
+    </div>
+  </div>
+</div>

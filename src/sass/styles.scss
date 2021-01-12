@@ -1,0 +1,75 @@
+/* Add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~flag-icon-css/css/flag-icon.css";
+@import './variables';
+@import './mixins';
+
+html, body {
+    font-family: $font-family;
+    font-size: $font-size;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+%tw-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex: 1 0 auto;
+}
+
+%tw-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    flex: 1 0 auto;
+    box-sizing: border-box;
+}
+
+.tw-hidden {
+    display: none;
+}  
+
+.tw-nav-icon-size {
+    font-size: 1.5em;
+}
+
+$tw-nav-back-color: #3658B0;
+$tw-nav-font-color: #DBD6D6;
+//$tw-nav-back-color: #fafafa;
+//$tw-nav-font-color: rgba(0, 0, 0, 0.7);
+
+$tw-scrolltrack-color: rgba(0, 0, 0, 0.8);
+$tw-scrollthumb-color: rgba(255, 255, 255, 0.2);
+
+/* Firefox */
+.tw-scroller {
+    scrollbar-color: $tw-scrollthumb-color $tw-scrolltrack-color; /* thumb and track color */
+    scrollbar-width: thin;
+}
+
+/* Chrome */
+.tw-scroller::-webkit-scrollbar {
+    width: 5px;
+}
+
+.tw-scroller::-webkit-scrollbar-track {
+    background: $tw-scrolltrack-color;
+}
+
+.tw-scroller::-webkit-scrollbar-thumb {
+    background: $tw-scrollthumb-color;
+    border-right: 1px solid $tw-scrolltrack-color;
+}
+  
+  
+  

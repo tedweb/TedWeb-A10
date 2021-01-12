@@ -1,0 +1,75 @@
+<div class="tw-root" >
+  <tw-header
+    [selectedApp]="this.selectedApp"
+    [isMinimized]="this.menuIsCollapsed"
+    [selectedPage]="this.displayPage"
+    (signIn)="onSignIn()"
+    (createAccount)="onCreateAccount()"
+    (floatNavMenu)="onFloatNavMenuToggle()"
+    (appSelect)="onAppSelect($event)"
+    (homeSelect)="onPageSelect($event)"
+    (actionSelect)="onActionSelect($event)"
+  ></tw-header>
+
+  <div
+    class="tw-main"
+  >
+  <tw-angular-nav
+    class="tw-nav-expanded-gt-xs"
+    [buttonHeight]="50"
+    [isResizable]="this.isNavResizeable"
+    [isMinimized]="this.selectedApp.menu.isMinimized"
+    [orientation]="this.selectedApp.menu.orientation"
+    [menu]="this.menu"
+    [selectedMenu]="this.selectedApp.page"
+    (menuSelect)="onMenuSelect($event)"
+    (menuCollapsed)="onMenuCollapsed()"
+    (menuExpanded)="onMenuExpanded()"
+    style="z-index: 1;width: 100%;"
+  ></tw-angular-nav>
+
+
+    <!-- <tw-angular-nav
+      [ngClass.gt-xs]="{
+        'tw-nav-collapsed-gt-xs' : this.menuIsCollapsed,
+        'tw-nav-expanded-gt-xs' : !this.menuIsCollapsed
+      }"
+      [ngClass.xs]="{
+        'tw-hidden' : !this.displayFloatingNavMenu,
+        'tw-nav-expanded-xs' : this.displayFloatingNavMenu
+      }"
+      [buttonHeight]="50"
+      [isResizable]="this.isNavResizeable"
+      [isMinimized]="this.selectedApp.menu.isMinimized"
+      [orientation]="this.selectedApp.menu.orientation"
+      [menu]="this.menu"
+      [selectedMenu]="this.selectedApp.page"
+      (menuSelect)="onMenuSelect($event)"
+      (menuCollapsed)="onMenuCollapsed()"
+      (menuExpanded)="onMenuExpanded()"
+      style="z-index: 1;width: 100%;"
+    ></tw-angular-nav> -->
+
+    <div
+      [ngClass.gt-xs]="{
+        'tw-content-wrapper' : true
+      }"
+      [ngClass.xs]="{
+        'tw-hidden' : this.displayFloatingNavMenu,
+        'tw-content-wrapper' : !this.displayFloatingNavMenu
+      }"
+      style="height: calc(100% - 50px);z-index: 0;top: 50px;"
+    >
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  
+  
+  <tw-footer
+    class="tw-footer"
+    *ngIf="this.config.user !== undefined"
+    [version]="this.version"
+    (langSelect)="onLangSelect($event)"
+  ></tw-footer>
+
+</div>
